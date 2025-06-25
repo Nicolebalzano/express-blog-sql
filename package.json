@@ -1,0 +1,24 @@
+{
+  "name": "express-blog-api-crud",
+  "version": "1.0.0",
+  "description": "Esercizio ",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node --watch app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nicolebalzano/express-blog-api-crud.git"
+  },
+  "type": "module",
+  "author": "Nicole Balzano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nicolebalzano/express-blog-api-crud/issues"
+  },
+  "homepage": "https://github.com/Nicolebalzano/express-blog-api-crud#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mysql2": "^3.14.1"
+  }
+}
