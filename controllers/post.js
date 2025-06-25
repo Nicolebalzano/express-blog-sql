@@ -62,15 +62,15 @@ post.tags = updatedPost.tags;
 }
 const destroy =(req, res) => {
      const postId = req.params.id;
-  const index = myPosts.findIndex(curPost => curPost.id === parseInt(postId))
-   if(index === -1) {
-    res.status(404);
-  return  res.json({
-        error: "Post non trovato"
-    })
-   }
-   myPosts.splice(index, 1)
-    res.sendStatus(204) 
+     const sql = "DELETE FROM posts WHERE id = ?"
+     connection.query(sql, [postId], (err, results) => {
+      if(err){
+        console.log("errore")
+      }else{
+        console.log("results")
+        res.sendStatus(204)
+      }
+     })
 }
 
     const postController = {
