@@ -1,7 +1,7 @@
 
 import { myPosts } from "../data.js";
 import connection from "../db.js";
-// INDEX
+// INDEX CON SQL
 const index = (req, res) => {
    console.log("index dei post")
    const sql = "SELECT * FROM posts";
