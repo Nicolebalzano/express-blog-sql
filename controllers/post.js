@@ -15,19 +15,26 @@ const index = (req, res) => {
     }
    })
 }
+// SHOW CON SQL
 const show = (req, res) => {
     const postId = req.params.id;
-  const post = myPosts.find(curPost => curPost.id === parseInt(postId))
-  if(post === undefined){
-    res.status(404);
-    return res.json({
-        error : "Post non trovato"
-    })
+  const sql = "SELECT * FROM posts WHERE id = ?";
+  connection.query(sql, [postId], (err, results) => {
+    if(err){
+      console.log("error")
+    }else{
+      if(results.length == 0){
+        res.status(404).json({
+          error : "post non trovato",
+        })
+        }else{
+          res.status(200).json({
+            data : results[0],
+          })
+    }
   }
-    res.json({
-        data : post,
-    })
-}
+  })
+  }
 const store =(req, res) => {
     const newPost = req.body; 
    const lastId = myPosts[myPosts.length - 1].id;
